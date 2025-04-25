@@ -1,5 +1,7 @@
 # Môi trường ảo
 venv/
+Llama_venv/
+phobert-venv/
 
 # Thư mục chứa các tệp tạm thời của Jupyter Notebook
 .ipynb_checkpoints
