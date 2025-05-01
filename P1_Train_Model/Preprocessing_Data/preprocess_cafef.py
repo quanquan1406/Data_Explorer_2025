@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Đọc file đã có sentiment và sentiment_score
-df = pd.read_excel("output_with_sentiment_score.xlsx")
+df = pd.read_excel("../../DATA EXPLORER CONTEST/Preprocessed_Data/output_with_sentiment_score.xlsx")
 
 # Đảm bảo cột ngày ở đúng định dạng
 df['date'] = pd.to_datetime(df['date']).dt.date
@@ -25,7 +25,7 @@ def get_dominant_sentiment(group):
 result_df = df.groupby('date').apply(get_dominant_sentiment).reset_index(drop=True)
 
 # Xuất ra file
-result_df.to_excel("daily_dominant_sentiment_no_title.xlsx", index=False)
+result_df.to_excel("../../DATA EXPLORER CONTEST/Preprocessed_Data/daily_dominant_sentiment_no_title.xlsx", index=False)
 
 # In kiểm tra vài dòng
 print(result_df.head())

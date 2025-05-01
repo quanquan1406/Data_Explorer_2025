@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Đọc file Excel đã xử lý cảm xúc
-df = pd.read_excel("output_with_sentiment.xlsx")
+df = pd.read_excel("../../DATA EXPLORER CONTEST/Preprocessed_Data/output_with_sentiment.xlsx")
 
 # Ánh xạ sentiment sang chỉ số
 sentiment_mapping = {
@@ -14,7 +14,7 @@ sentiment_mapping = {
 df['sentiment_score'] = df['sentiment'].map(sentiment_mapping)
 
 # Lưu lại ra file mới nếu cần
-df.to_excel("output_with_sentiment_score.xlsx", index=False)
+df.to_excel("../../DATA EXPLORER CONTEST/Preprocessed_Data/output_with_sentiment_score.xlsx", index=False)
 
 # In kiểm tra vài dòng đầu
 print(df[['title', 'sentiment', 'sentiment_score']].head())

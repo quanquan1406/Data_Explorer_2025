@@ -3,7 +3,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipe
 import re
 
 # Đọc dữ liệu từ file Excel
-df = pd.read_excel("./DATA EXPLORER CONTEST/News - FPT & CMG/CafeF_News_FPT_CMG.xlsx")
+df = pd.read_excel("../../DATA EXPLORER CONTEST/News - FPT & CMG/CafeF_News_FPT_CMG.xlsx")
 
 # Ghép title 
 df['input_text'] = df['title'].astype(str)
@@ -49,7 +49,7 @@ def analyze_sentiment(text):
 df['sentiment'] = df['input_text'].apply(analyze_sentiment)
 
 # Lưu kết quả ra file Excel
-df.to_excel("output_with_sentiment.xlsx", index=False)
+df.to_excel("../../DATA EXPLORER CONTEST/Preprocessed_Data/output_with_sentiment.xlsx", index=False)
 
 # In một vài kết quả để kiểm tra
 print(df[['title', 'date', 'summary', 'sentiment']].head())
