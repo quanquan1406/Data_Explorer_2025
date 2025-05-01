@@ -7,4 +7,10 @@ LLM-venv/
 # Thư mục chứa các tệp tạm thời của Jupyter Notebook
 .ipynb_checkpoints
 
+# Tệp tùy chọn
+Token_use.py
+
+# Thư mục tạm thời của python
+__pycache__/
+
 

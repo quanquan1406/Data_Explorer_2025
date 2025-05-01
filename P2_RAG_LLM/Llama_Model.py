@@ -4,26 +4,32 @@ import requests
 import os
 from pathlib import Path
 
-st.set_page_config(page_title="💬 Chatbot Zephyr", layout="wide")
-st.title("🤖 Chatbot Zephyr-7B qua Hugging Face API")
+import Token_use
 
-# --- TOKEN Hugging Face ---
-HF_TOKEN = os.getenv("HF_TOKEN", "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")
-API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
-HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
+st.set_page_config(page_title="💬 Chatbot Llama-Vision", layout="wide")
+st.title("🤖 Chatbot với model meta-llama/Llama-Vision-Free từ Together")
+
+# --- TOKEN Together.ai ---
+HF_TOKEN = os.getenv("HF_TOKEN", Token_use.Token)
+API_URL = "https://api.together.xyz/v1/chat/completions"
+HEADERS = {
+    "Authorization": f"Bearer {HF_TOKEN}",
+    "Content-Type": "application/json"
+}
 
 # --- Gọi API ---
 def query_llm(prompt):
     payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": 512,
-            "return_full_text": False
-        }
+        "model": "meta-llama/Llama-Vision-Free",
+        "messages": [
+            {"role": "user", "content": prompt}
+        ],
+        "max_tokens": 512,
+        "temperature": 0.7
     }
     response = requests.post(API_URL, headers=HEADERS, json=payload)
     if response.status_code == 200:
-        return response.json()[0]["generated_text"].strip()
+        return response.json()["choices"][0]["message"]["content"].strip()
     return f"⚠️ Lỗi: {response.status_code} - {response.text}"
 
 # --- Load dữ liệu từ folder con recursively ---
@@ -63,14 +69,13 @@ def display_chat():
 def format_chat(chat_history, dfs, last_n=3, max_prompt_length=3000):
     prompt = ""
     for name, df in dfs.items():
-        prompt += f"<|user|>\nDữ liệu từ {name}:\n{df.head(2).to_markdown(index=False)}\n"
+        prompt += f"Dữ liệu từ {name}:\n{df.head(2).to_markdown(index=False)}\n\n"
         if len(prompt) > max_prompt_length:
             break
     recent = chat_history[-last_n*2:]
     for turn in recent:
-        tag = 'user' if turn['role']=='user' else 'assistant'
-        prompt += f"<|{tag}|>\n{turn['content']}\n"
-    prompt += "<|assistant|>\n"
+        tag = 'User' if turn['role']=='user' else 'Assistant'
+        prompt += f"{tag}: {turn['content']}\n"
     return prompt[:max_prompt_length]
 
 # --- Trang Chatbot ---
