@@ -2,6 +2,7 @@
 venv/
 Llama_venv/
 phobert-venv/
+LLM-venv/
 
 # Thư mục chứa các tệp tạm thời của Jupyter Notebook
 .ipynb_checkpoints
