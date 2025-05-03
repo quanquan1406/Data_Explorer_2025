@@ -6,8 +6,8 @@ from pathlib import Path
 
 import Token_use
 
-st.set_page_config(page_title="💬 Chatbot Llama-Vision", layout="wide")
-st.title("🤖 Chatbot với model meta-llama/Llama-Vision-Free từ Together")
+st.set_page_config(page_title="💬 Chatbot Llama-Model", layout="wide")
+st.title("🤖 Chatbot với model meta-llama/Llama-Model từ Together")
 
 # --- TOKEN Together.ai ---
 HF_TOKEN = os.getenv("HF_TOKEN", Token_use.Token)
@@ -20,7 +20,7 @@ HEADERS = {
 # --- Gọi API ---
 def query_llm(prompt):
     payload = {
-        "model": "meta-llama/Llama-Vision-Free",
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
         "messages": [
             {"role": "user", "content": prompt}
         ],
