@@ -4,6 +4,6 @@ import delimited "../DATA EXPLORER CONTEST/Preprocessed_Data/merged_data_(t-1).c
 * Summary statistics
 summarize
 
-correlate closing_price_lag1 *
+correlate closingprice *
 
 
