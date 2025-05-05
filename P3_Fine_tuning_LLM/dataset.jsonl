@@ -1,0 +1,15 @@
+{"messages":[
+    {"role":"system","content":"Bạn là chuyên gia tài chính."},
+    {"role":"user","content":"Cổ phiếu: FPT\nNgày: 2024-04-01\nGiá hiện tại: 96.2\nTin tức: 'FPT công bố lợi nhuận tăng mạnh trong quý 1'.\nDự báo giá 3 ngày tới."},
+    {"role":"assistant","content":"96.5, 96.9, 97.3"}
+  ]}
+  {"messages":[
+    {"role":"system","content":"Bạn là chuyên gia tài chính."},
+    {"role":"user","content":"Cổ phiếu: FPT\nNgày: 2024-04-02\nGiá hiện tại: 96.9\nTin tức: 'Nhà đầu tư nước ngoài tiếp tục mua ròng cổ phiếu FPT'.\nDự báo giá 3 ngày tới."},
+    {"role":"assistant","content":"97.2, 97.5, 97.8"}
+  ]}
+  {"messages":[
+    {"role":"system","content":"Bạn là chuyên gia tài chính."},
+    {"role":"user","content":"Cổ phiếu: CMG\nNgày: 2024-04-01\nGiá hiện tại: 39.8\nTin tức: 'CMC Telecom ký kết hợp tác chiến lược với đối tác Nhật Bản'.\nDự báo giá 3 ngày tới."},
+    {"role":"assistant","content":"40.2, 40.6, 41.0"}
+  ]}
