@@ -12,5 +12,7 @@ Token_use.py
 
 # Thư mục tạm thời của python
 __pycache__/
+cache/
+
 
 
