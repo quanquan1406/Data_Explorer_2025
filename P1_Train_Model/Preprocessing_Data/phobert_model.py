@@ -5,7 +5,6 @@ import re
 # Đọc dữ liệu từ file Excel
 df = pd.read_excel("../../DATA EXPLORER CONTEST/News - FPT & CMG/CafeF_News_FPT_CMG.xlsx")
 
-# Ghép title 
 df['input_text'] = df['title'].astype(str)
 
 # PhoBERT đã fine-tune cho phân tích cảm xúc
