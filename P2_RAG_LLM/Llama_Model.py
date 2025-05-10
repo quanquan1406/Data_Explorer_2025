@@ -128,7 +128,7 @@ Vui lòng trả lời chính xác, rõ ràng, và nếu có thể, hãy chỉ ra
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="RAG Chatbot", layout="wide")
-st.title("📊 Chatbot RAG – Truy xuất theo hàng từ dữ liệu lớn")
+st.title("📊 Chatbot RAG – Truy xuất từ dữ liệu lớn")
 
 if st.sidebar.button("🧹 Xóa cache và xử lý lại dữ liệu"):
     for f in [INDEX_FILE, CHUNKS_FILE, EMBEDDINGS_FILE]:
