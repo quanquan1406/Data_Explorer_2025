@@ -75,7 +75,7 @@ Hệ thống gồm 3 bước chính:
 ```bash
 cd P2_RAG_LLM
 streamlit run Llama_model.py
-
+```
 ![image](https://github.com/user-attachments/assets/a925142e-07d4-49cb-b26b-932a715f5946)
 
 ![image](https://github.com/user-attachments/assets/fba8a24f-e621-4873-a201-76f0fa5bd4e2)
