@@ -21,4 +21,23 @@ Dự án được thực hiện trong khuôn khổ cuộc thi **Data Explorers 2
   - `faiss`, `sentence-transformers` – hệ thống RAG
   - `streamlit` – giao diện demo
 
+### 🔍 Mô hình Hồi quy tuyến tính
+
+Mô hình hồi quy tuyến tính được lựa chọn là mô hình baseline trong quá trình thử nghiệm do tính đơn giản, dễ giải thích và hiệu quả trên tập dữ liệu nhỏ. Dữ liệu đầu vào bao gồm các đặc trưng kỹ thuật như:
+
+- Giá đóng cửa phiên trước (`Closing Price_lag1`)
+- Đường trung bình động (`MA5`, `MA10`)
+- Khối lượng và giá trị giao dịch của nhà đầu tư nước ngoài
+- Các chỉ số tài chính và sentiment từ tin tức
+
+Sau khi huấn luyện trên tập dữ liệu gồm ~240 phiên giao dịch, mô hình đạt:
+
+- **MSE**: 4.38 triệu
+- **RMSE**: ~2,093 VND
+- **MAE**: ~1,540 VND
+- **R²**: 0.77
+- **MAPE**: 1.06 % (Tỷ lệ sai số trung bình so với thực tế khoảng 1.06% )
+
+![image](https://github.com/user-attachments/assets/66ab7706-4301-4bfd-adb3-ed2022dd207e)
+
 
