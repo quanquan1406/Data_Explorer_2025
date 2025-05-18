@@ -40,4 +40,47 @@ Sau khi huấn luyện trên tập dữ liệu gồm ~240 phiên giao dịch, m�
 
 ![image](https://github.com/user-attachments/assets/66ab7706-4301-4bfd-adb3-ed2022dd207e)
 
+### 🧠 Hệ thống RAG – Retrieval-Augmented Generation
+
+Bên cạnh mô hình dự báo định lượng, nhóm phát triển một hệ thống RAG (Retrieval-Augmented Generation) để **truy xuất thông tin tài chính và trả lời câu hỏi ngôn ngữ tự nhiên** dựa trên dữ liệu phi cấu trúc (tin tức, báo cáo tài chính, họp cổ đông...).
+
+#### 🧩 Cách hoạt động
+
+Hệ thống gồm 3 bước chính:
+
+1. **Tiền xử lý dữ liệu văn bản**:
+   - Dữ liệu từ các file tin tức, báo cáo tài chính, và giao dịch được chia nhỏ (chunking) thành từng đoạn văn bản.
+   - Mỗi đoạn được nhúng (embedding) thành vector bằng mô hình `all-MiniLM-L6-v2` từ thư viện `sentence-transformers`.
+
+2. **Tạo chỉ mục tìm kiếm (Vector Store)**:
+   - Sử dụng thư viện **FAISS** để tạo chỉ mục tìm kiếm nhanh trên không gian vector.
+   - Lưu cache để tối ưu thời gian truy vấn.
+
+3. **Truy vấn với LLM**:
+   - Khi người dùng đặt câu hỏi, hệ thống:
+     - Mã hóa câu hỏi → truy tìm các đoạn văn bản liên quan trong FAISS.
+     - Tổng hợp context từ các đoạn tìm được → gửi vào mô hình **LLaMA-3.3-70B** thông qua API của **Together.ai**.
+   - LLM sinh câu trả lời từ context, có thể kèm dẫn nguồn (sheet/row) từ dữ liệu gốc.
+
+#### 🔧 Công cụ sử dụng
+
+- `FAISS`: Tìm kiếm gần đúng theo vector hiệu quả.
+- `sentence-transformers`: Tạo embedding từ văn bản.
+- `Together.ai`: API truy cập mô hình ngôn ngữ lớn LLaMA 3.
+- `Streamlit`: Triển khai giao diện demo hỏi–đáp.
+- `pandas`, `numpy`: Phân tích dữ liệu bảng.
+
+#### 💻 Hướng dẫn chạy demo RAG
+
+```bash
+cd P2_RAG_LLM
+streamlit run Llama_model.py
+
+![image](https://github.com/user-attachments/assets/a925142e-07d4-49cb-b26b-932a715f5946)
+
+![image](https://github.com/user-attachments/assets/fba8a24f-e621-4873-a201-76f0fa5bd4e2)
+
+![image](https://github.com/user-attachments/assets/d00387cc-5906-43a3-ac8c-e9b4b36b7bf2)
+
+
 
