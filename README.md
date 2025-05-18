@@ -1,4 +1,4 @@
-# 📊 Data Explorers 2025 – Dự báo giá cổ phiếu FPT & CMG bằng mô hình ngôn ngữ lớn (LLM)
+# 📊 Data Explorers 2025 – Dự báo giá cổ phiếu FPT 
 
 ## 🚀 Giới thiệu
 
